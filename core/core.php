@@ -38,6 +38,7 @@
 
 	# SESSION VARS
 	# System vars
+	if (!empty($_SESSION['login'])&&!is_dir('thumbs/'.$_SESSION['login'])){mkdir('thumbs/'.$_SESSION['login']);}
 	if (empty($_SESSION['api_rss_key'])&&!empty($_SESSION['login'])){$_SESSION['api_rss_key']=hash_user($_SESSION['login']);}
 	if (!conf('stats_max_entries')){conf('stats_max_entries',$default_limit_stat_file_entries);}
 	if (!conf('stats_max_lines')){conf('stats_max_lines',$default_max_lines_per_page_on_stats_page);}
